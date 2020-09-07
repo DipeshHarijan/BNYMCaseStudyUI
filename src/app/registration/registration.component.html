@@ -1,0 +1,144 @@
+<h2>Customer Registration</h2>
+<div class="container p-5 bg-light">
+    <form name="form" #f="ngForm">
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="fName">First Name</label>
+            </div>
+            <div class="col-7">
+                <input type="text" class="form-control" id="fName" pattern="[a-zA-Z]{2}[a-zA-Z]*" required #fn="ngModel"
+                    name="FirstName" [(ngModel)]="customer.firstName" placeholder="Enter your first name">
+                <div *ngIf="fn.touched">
+                    <div *ngIf="fn.errors && (fn.invalid)">
+                        <small class="text-danger" *ngIf="fn.errors.required">firstname is required</small>
+                        <small class="text-danger" *ngIf="fn.errors.pattern">Only alphabets allowed with minimum 2
+                            chars</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="lName">Last Name</label>
+            </div>
+            <div class="col-7">
+                <input type="text" class="form-control" id="lName" pattern="[a-zA-Z]{2}[a-zA-Z]*" required #ln="ngModel"
+                    name="LastName" [(ngModel)]="customer.lastName" placeholder="Enter your last name">
+                <div *ngIf="ln.touched">
+                    <div *ngIf="ln.errors && (ln.invalid)">
+                        <small class="text-danger" *ngIf="ln.errors.required">lastname is required</small>
+                        <small class="text-danger" *ngIf="ln.errors.pattern">Only alphabets allowed with minimum 2
+                            chars</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="pan">PAN</label>
+            </div>
+            <div class="col-7">
+                <input type="text" class="form-control" id="pan" maxlength="10" pattern="[A-Z]{5}[0-9]{4}[A-Z]" required
+                    #pn="ngModel" name="PanNumber" [(ngModel)]="customer.pan" placeholder="Enter your PAN number">
+                <div *ngIf="pn.touched">
+                    <div *ngIf="pn.errors && (pn.invalid)">
+                        <small class="text-danger" *ngIf="pn.errors.required">PAN is required</small>
+                        <small class="text-danger" *ngIf="pn.errors.pattern">PAN should be of 10 characters with format
+                            BNGPS8372Q</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="password">Password</label>
+            </div>
+            <div class="col-7">
+                <input type="password" class="form-control" id="password" pattern=".{5}.*" required #pw="ngModel"
+                    name="Password" [(ngModel)]="customer.password" placeholder="Enter Password">
+                <div *ngIf="pw.touched">
+                    <div *ngIf="pw.errors && (pw.invalid)">
+                        <small class="text-danger" *ngIf="pw.errors.required">Password is required</small>
+                        <small class="text-danger" *ngIf="pw.errors.pattern">Password must be atleast 5 chars</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="cPassword">Confirm password</label>
+            </div>
+            <div class="col-7">
+                <input type="password" class="form-control" id="cPassword" pattern=".{5}.*" required #cp="ngModel"
+                    name="ConfirmPassword" [(ngModel)]="password2" placeholder="Re-Enter password">
+                <div *ngIf="cp.touched">
+                    <div *ngIf="cp.errors && (cp.invalid)">
+                        <small class="text-danger" *ngIf="cp.errors.required">Password is required</small>
+                        <small class="text-danger" *ngIf="cp.errors.pattern">Password must be atleast 5 chars</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="cEmail">Email Id</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" id="cEmail"
+                    required #email="ngModel" class="form-control" name="Email" [(ngModel)]="customer.email"
+                    placeholder="Enter your EmailId">
+                <div *ngIf="email.touched">
+                    <div *ngIf="email.errors && (email.invalid)">
+                        <small class="text-danger" *ngIf="email.errors.required">Email Id is required</small>
+                        <small class="text-danger" *ngIf="email.errors.pattern">Invalid email Id</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="cMobile">Mobile number</label>
+            </div>
+            <div class="col-7">
+                <input type="text" pattern="[1-9]{1}[0-9]{9}" id="cMobile" required maxlength="10" #mobile="ngModel"
+                    class="form-control" name="VendorMobile" [(ngModel)]="customer.phone"
+                    placeholder="Enter Mobile number">
+                <div *ngIf="mobile.touched">
+                    <div *ngIf="mobile.errors && (mobile.invalid)">
+                        <small class="text-danger" *ngIf="mobile.errors.required">Mobile number is required</small>
+                        <small class="text-danger" *ngIf="mobile.errors.pattern">Must not start with 0 and have exactly
+                            10 digits</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label for="birthDate">Date of Birth</label>
+            </div>
+            <div class="col-7">
+                <input type="date" [(ngModel)]="customer.dob" #dob="ngModel" class="form-control" required
+                    name="BirthDate" id="birthDate">
+                <div *ngIf="dob.touched">
+                    <div *ngIf="dob.errors">
+                        <small class="text-danger" *ngIf="dob.errors.required">DOB is required</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3 ml-4 form-group">
+            <button [disabled]="f.invalid" type="submit" name="submit" class="form-control" (click)="save()"
+                class="btn btn-primary btn-md">Submit</button>
+        </div>
+
+    </form>
+
+</div>
