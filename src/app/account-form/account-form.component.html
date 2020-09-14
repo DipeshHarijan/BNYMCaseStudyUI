@@ -1,0 +1,42 @@
+<h2>Create your Bank Account in One Click</h2>
+<div class="container mt-5">
+    <form name="form" #f="ngForm">
+        <div class="row form-group">
+            <div class="col-6">
+                <label>Please select the bank of your Choice</label>
+            </div>
+            <div class="col-6">
+                <select class="form-control" (change)="change()" required [(ngModel)]="ifsc" name="Bank">
+                    <option value="default">---select---</option>
+                    <option *ngFor="let a of banks">{{a.ifscCode}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-6">
+                <label>Bank Name</label>
+            </div>
+            <div class="col-6">
+                <select disabled  class="form-control" name="BankName">
+                    <option>{{bank.bankName}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-6">
+                <label>Bank City</label>
+            </div>
+            <div class="col-6">
+                <select disabled  class="form-control" name="BankCity">
+                    <option>{{bank.city}}</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button type="button" [disabled]="f.invalid" class="mt-5 btn btn-primary form-control" (click)="save()">Create
+                Account</button>
+        </div>
+    </form>
+</div>

@@ -1,1 +1,23 @@
-<p>bank-account works!</p>
+<div class="container">
+    <h3>Bank Accounts List</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Bank Name</th>
+                <th>IFSC Code</th>
+                <th>MICR Code</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of accounts">
+                <td>{{a.accountNumber}}</td>
+                <td>{{a.bank.bankName}}</td>
+                <td>{{a.bank.ifscCode}}</td>
+                <td>{{a.bank.micrCode}}</td>
+                <td>{{a.bank.city}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

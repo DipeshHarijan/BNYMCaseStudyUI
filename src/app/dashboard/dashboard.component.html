@@ -1,3 +1,17 @@
-<div class="container">
-    <div class="zoom"><a >Your bank accounts</a></div>
+<div class="container-fluid">
+  <h2>Welcome <span>{{customer.firstName}} {{customer.lastName}}</span> to the Unified Banking Corporation</h2>
 </div>
+<div class="row mt-5">
+    <div class="column">
+      <div class="card"><a routerLink="account">Get your bank Accounts</a></div>
+    </div>
+    <div class="column">
+      <div class="card"><a routerLink="transactions">Get your transactions</a></div>
+    </div>
+    <div class="column">
+      <div class="card"><a routerLink="create-account">Create Bank Account</a></div>
+    </div>
+    <div class="column">
+      <div class="card"><a routerLink="invest">Invest in mutual fund</a></div>
+    </div>
+  </div>

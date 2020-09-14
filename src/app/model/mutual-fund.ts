@@ -1,4 +1,5 @@
 export class MutualFund {
-    mutualFundId: number;
-    mutualFundName: string;
+    constructor(
+        public mutualFundId: number,
+        public mutualFundName: string) { }
 }

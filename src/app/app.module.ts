@@ -14,6 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BankAccountComponent } from './bank-account/bank-account.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { AccountFormComponent } from './account-form/account-form.component';
+import { InvestComponent } from './invest/invest.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { TransactionsComponent } from './transactions/transactions.component';
     DashboardComponent,
     LogoutComponent,
     BankAccountComponent,
-    TransactionsComponent
+    TransactionsComponent,
+    AccountFormComponent,
+    InvestComponent
   ],
   imports: [
     BrowserModule,

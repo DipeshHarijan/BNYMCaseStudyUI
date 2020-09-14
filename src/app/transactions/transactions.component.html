@@ -1,1 +1,27 @@
-<p>transactions works!</p>
+<div class="container p-3">
+    <h3>Your Transactions</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction Id</th>
+                <th>Mutualfund Id</th>
+                <th>Amount</th>
+                <th>DateTime</th>
+                <th>Account Number</th>
+                <th>Bank Name</th>
+                <th>Branch</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of transactions">
+                <td>{{t.transactionId}}</td>
+                <td>{{t.mutualFundId}}</td>
+                <td>{{t.amount}}</td>
+                <td>{{t.time}}</td>
+                <td>{{t.account.accountNumber}}</td>
+                <td>{{t.account.bank.bankName}}</td>
+                <td>{{t.account.bank.city}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

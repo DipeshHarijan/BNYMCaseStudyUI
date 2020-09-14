@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Customer } from '../model/customer';
 import { CustomerService } from './customer.service';
 
@@ -11,20 +9,22 @@ export class AuthenticationService {
 
   customer: Customer;
   baseUrl: string;
+  customers: Customer[];
 
   constructor(private customerService: CustomerService) {
+    this.customerService.getAllCustomers().subscribe(data => this.customers = data);
   }
 
   authenticate(username: string, password: string): boolean {
-    this.customerService.getCustomer(username).subscribe(data => this.customer = data);
+    this.customer = this.customers.find(data => data.pan == username);
     if (this.customer != null) {
       if (this.customer.password === password) {
         sessionStorage.setItem('username', username);
-        sessionStorage.setItem('password', password);
         return true;
       }
       else
         return false;
+
     }
     return false;
   }
@@ -36,7 +36,6 @@ export class AuthenticationService {
 
   logout() {
     sessionStorage.removeItem('username');
-    sessionStorage.removeItem('password');
   }
 
 }

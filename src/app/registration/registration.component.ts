@@ -25,10 +25,10 @@ export class RegistrationComponent implements OnInit {
   save() {
 
     if (this.passwordMatching()) {
-      this.customerService.addCustomer(this.customer).subscribe(data => { console.log('Registration successful') }, error => console.log(error));
+      this.customerService.addCustomer(this.customer).subscribe(data => { alert('Registration successful') }, error => alert('Customer with given PAN already exists. Try again!'));
       this.route.navigate([""]);
     } else {
-      console.log('password mismatch');
+      alert('password mismatch');
     }
 
 

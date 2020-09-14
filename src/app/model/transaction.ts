@@ -1,7 +1,9 @@
+import { Account } from './account';
+
 export class Transaction {
-    transactionId: number;
-    mutualFundId: number;
-    amount: number;
-    time: Date;
-    number: Account;
+    constructor(
+        public mutualFundId: number,
+        public amount: number,
+        public account: Account) { }
+
 }
