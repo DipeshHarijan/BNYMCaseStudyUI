@@ -3,12 +3,12 @@
     <form name="form" #f="ngForm">
         <div class="row form-group">
             <div class="col-6">
-                <label>Please select the bank of your Choice</label>
+                <label>Bank City</label>
             </div>
             <div class="col-6">
-                <select class="form-control" (change)="change()" required [(ngModel)]="ifsc" name="Bank">
+                <select  class="form-control" (change)="changeCity()" [(ngModel)]="city" name="BankCity">
                     <option value="default">---select---</option>
-                    <option *ngFor="let a of banks">{{a.ifscCode}}</option>
+                    <option *ngFor="let a of banks">{{a.city}}</option>
                 </select>
             </div>
         </div>
@@ -18,22 +18,28 @@
                 <label>Bank Name</label>
             </div>
             <div class="col-6">
-                <select disabled  class="form-control" name="BankName">
-                    <option>{{bank.bankName}}</option>
+                <select  class="form-control" (change)="changeBank()" [(ngModel)]="bankName" name="BankName">
+                    <option value="default">---select---</option>
+                    <option *ngFor="let a of banks2">{{a.bankName}}</option>
                 </select>
             </div>
         </div>
 
         <div class="row form-group">
             <div class="col-6">
-                <label>Bank City</label>
+                <label>Please select the bank of your Choice</label>
             </div>
             <div class="col-6">
-                <select disabled  class="form-control" name="BankCity">
-                    <option>{{bank.city}}</option>
+                <select class="form-control" (change)="changeIfsc()" required [(ngModel)]="ifsc" name="Bank">
+                    <option value="default">---select---</option>
+                    <option *ngFor="let a of banks3">{{a.ifscCode}}</option>
                 </select>
             </div>
         </div>
+
+       
+
+        
         <div>
             <button type="button" [disabled]="f.invalid" class="mt-5 btn btn-primary form-control" (click)="save()">Create
                 Account</button>
